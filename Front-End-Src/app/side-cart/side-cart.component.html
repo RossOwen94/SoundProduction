@@ -1,0 +1,32 @@
+<div class="sideCart">
+  <h3 class="cartHeader">Your Cart</h3>
+  <hr>
+  <div  class="cartItems">
+    <li *ngFor="let sample of samples">
+      <div class="itemTitle">
+        <span class="itemName">{{sample.name}} [PDF Download]</span>
+        <button type="button" class="removeButton" [attr.data-samplename]="sample.name">Remove</button>
+      </div>
+        <div>{{sample.price | currency}}</div>
+    </li>
+  </div>
+  <div class="cartFooter">
+    <div class="numItems">
+      <span class="countLabel">Total Scores:</span>
+      <span class="countNumber">{{itemCount}}</span> 
+    </div>
+    <div class="subTotal">
+      <span class="subLabel">Subtotal :</span>
+      <span class="subNumber">{{subTotal | currency}}</span>
+    </div>
+  </div>
+  <a routerLink="/payment"><button id="checkoutButton" type="button" class="btn btn-secondary" >Checkout</button></a>
+</div>
+
+
+
+
+
+
+
+

@@ -1,0 +1,144 @@
+<div class="dashboardWindow">
+    <h3 class="dashboardHead">Admin Dashboard</h3>
+    <hr>
+    <div class="dashboardContent">
+      <div class="dashboardNav">
+        <li><button class="dashButton" (click)="this.setOption('add')">Add Score</button></li>
+        <li><button class="dashButton" (click)="this.setOption('scores')">View/Edit Scores</button></li>
+        <li><button class="dashButton" (click)="this.setOption('sales')">View all Sales</button></li>
+      </div>
+      <div class="content">
+          <div *ngIf="this.option=='add'">
+              <form *ngIf="!addSuccess" [formGroup]="rForm" #myForm="ngForm" class="emailForm" (ngSubmit)="addScore(rForm.value,myForm)">
+                  <div class="supportLabel">Enter score details below to add a score :</div>
+                  <hr>
+                  <div class="formField" >
+                      <label for="name">Name of Score(.pdf filename must match exactly):</label>
+                      <input type="text" class="form-control" formControlName="name" name="name" placeholder="Score Name">
+                    </div>
+                  <div class="formField">
+                    <label for="soundcloud">SoundCloud URL(Find the 'src' string from the 'Embed Code'. i.e. src="https://...."</label>
+                    <input type="text" class="form-control" formControlName="soundcloud" name="soundcloud" placeholder="e.x. https://w.soundcloud.com/player/?url=https%3A//api.sound...">
+                  </div>
+                  <div class="formField" >
+                    <label for="difficulty">Difficulty( single number from 1-10)</label>
+                    <input type="number" class="form-control" formControlName="difficulty" name="difficulty" placeholder="Enter 1-10">
+                  </div>
+                  <div class="formField" >
+                      <label for="Instrumentation">Instrumentation(Enter a comma separated list like 'Marimba(3),Vibe(2),Timpani,Accessories' </label>
+                      <input type="text" class="form-control" formControlName="instrumentation" name="instrumentation" placeholder="e.x. Marimba 3,Zylophone (2), Two Zylophones,etc,etc">
+                  </div>
+                  <div class="formField" >
+                      <label for="shortDesc">Enter a sentence or two to get peoples attention/ give a short description.</label>
+                      <input type="text" class="form-control" formControlName="shortDesc" name="shortDesc" placeholder="e.x. An ominous build of emotions leads to a blah blah blah in this great piece">
+                  </div>
+                  <div class="formField" >
+                      <label for="longDesc">Enter a longer description of the piece to be displayed on it's individual page </label>
+                      <textarea  class="form-control" formControlName="longDesc" name="longDesc" rows="15" cols="50" placeholder="e.x. Marimba 3,Zylophone (2), Two Zylophones,etc,etc"></textarea>
+                  </div>
+                  <div class="formField" >
+                      <label for="price">Enter a number, no dollar sign.</label>
+                      <input type="number" class="form-control" formControlName="price" name="price" placeholder="e.x. '40' or '39.99'">
+                  </div>
+
+                  <div class="buttons">
+                    <button id="addButton"type="submit" class="btn btn-default" [disabled]="!rForm.valid">Add Score</button>
+                  </div>
+                </form> 
+                <div *ngIf="addSuccess">
+                        <div class="success">Score Added to Database</div>
+                        <button class="btn btn-primary" (click)="closeAddForm()">Close</button>
+                </div>
+          </div>
+          <div class="allSamples" *ngIf="this.option=='scores'">
+              <li *ngFor="let sample of samples">
+                  <div *ngIf="!isEditing || selectedScore == sample.name" class="singleSample">
+                      <div class="dataField"><span class="dataLabel">Name:</span>{{sample.name}}</div>
+                      <div class="dataField"><span class="dataLabel">Short Description:</span>{{sample.description}}</div>
+                      <div class="dataField"><span class="dataLabel">Long Description:</span>{{sample.longDesc}}</div>
+                      <div class="dataField"><span class="dataLabel">Difficulty:</span>{{sample.difficulty}}</div>
+                      <div class="dataField"><span class="dataLabel">Price:</span>{{sample.price}}</div>
+                      <div class="dataField"><span class="dataLabel">Instrumentation:</span>{{sample.instrumentation}}</div>
+                      <div class="dataLabel">SoundCloud URL:</div>
+                      <div class="soundcloudURL">{{sample.soundCloud}}</div>
+                      <button class="editButton" (click)="setSelectedScore(sample.name)">Edit</button>
+                      <button class="removeButton" (click)="openRemove(sample.name)" >Remove</button>
+                      <div *ngIf="selectedScore == sample.name">
+                                
+                            <div *ngIf="!removing">
+                                    <form *ngIf="!updateSuccess" [formGroup]="rForm" #myForm="ngForm" class="updateForm" (ngSubmit)="updateScore(rForm.value,myForm,sample.name)">
+                                            <div class="updateLabel">Enter New Score Details Below for</div>
+                                            <div ><span class="scoreLabel">{{sample.name}}</span> - Name cannot be changed</div>
+                                            <div>If a field will stay the same, copy and paste from the data bove.</div>
+                                            <hr>
+                                            <div class="formField">
+                                                <input id="nameField" type="text" class="form-control" formControlName="name" name="name" value="sample.name">
+                                            </div>
+                                            <div class="formField">
+                                              <label for="soundcloud">SoundCloud URL(Since you are editing, you will likely copy from above)</label>
+                                              <input type="text" class="form-control" formControlName="soundcloud" name="soundcloud" placeholder="e.x. https://w.soundcloud.com/player/?url=https%3A//api.sound...">
+                                            </div>
+                                            <div class="formField" >
+                                              <label for="difficulty">Difficulty( single number from 1-10)</label>
+                                              <input type="number" class="form-control" formControlName="difficulty" name="difficulty" placeholder="Enter 1-10">
+                                            </div>
+                                            <div class="formField" >
+                                                <label for="Instrumentation">Instrumentation(Enter a comma separated list like 'Marimba(3),Vibe(2),Timpani,Accessories' </label>
+                                                <input type="text" class="form-control" formControlName="instrumentation" name="instrumentation" placeholder="e.x. Marimba 3,Zylophone (2), Two Zylophones,etc,etc">
+                                            </div>
+                                            <div class="formField" >
+                                                <label for="shortDesc">Enter a sentence or two to get peoples attention/ give a short description.</label>
+                                                <input type="text" class="form-control" formControlName="shortDesc" name="shortDesc"placeholder="e.x. An ominous build of emotions leads to a blah blah blah in this great piece">
+                                            </div>
+                                            <div class="formField" >
+                                                <label for="longDesc">Enter a longer description of the piece to be displayed on it's individual page </label>
+                                                <textarea  class="form-control" formControlName="longDesc" name="longDesc" rows="15" cols="50" placeholder="Be descriptive"></textarea>
+                                            </div>
+                                            <div class="formField" >
+                                                <label for="price">Enter a number, no dollar sign.</label>
+                                                <input type="number" class="form-control" formControlName="price" name="price" placeholder="e.x. '40' or '39.99'">
+                                            </div>
+                          
+                                            <div class="buttons">
+                                              <button id="submit" type="submit" class="btn btn-primary" [disabled]="!rForm.valid">Save</button>
+                                              <button id="addButton" class="btn btn-secondary" (click)="closeEditor()">Cancel</button>
+                                            </div>
+                                          </form>
+                                          <div *ngIf="updateSuccess">
+                                              <div class="success">{{sample.name}} has been updated.</div>
+                                              <button class="btn btn-primary" (click)="closeEditor()">Close</button>
+                                          </div>
+                            </div>
+                            <div class="remove" *ngIf="removing">
+                                <div *ngIf="!removeSuccess">
+                                    <div class="updateLabel">Are You Sure You Want To Remove:</div>
+                                    <div class="scoreLabel">{{sample.name}}</div>
+                                    <button id="addButton" class="btn btn-danger" (click)="removeScore(sample.name)">Remove</button>
+                                    <button id="addButton" class="btn btn-secondary" (click)="closeEditor()">Cancel</button>
+                                </div>
+                                <div *ngIf="removeSuccess">
+                                        <div class="success">{{sample.name}} has been removed.</div>
+                                        <button class="btn btn-primary" (click)="closeEditor()">Close</button>
+                                </div>
+                            </div>
+                      </div>
+                  </div>
+              </li>
+          </div>
+          <div class="allSamples" *ngIf="this.option=='sales'">
+              <li *ngFor="let transaction of transactions">
+                  <div class="singleSample">
+                      <div class="dataField"><span class="dataLabel">Transaction Date:</span>{{transaction.date}}</div>
+                      <div class="dataField"><span class="dataLabel">Buyer Name:</span>{{transaction.name}}</div>
+                      <div class="dataField"><span class="dataLabel">Email(username):</span>{{transaction.email}}</div>
+                      <div class="dataField"><span class="dataLabel">Paypal-Email:</span>{{transaction.paypalEmail}}</div>
+                      <div class="dataField"><span class="dataLabel">Items:</span>{{transaction.items}}</div>
+                      <div class="dataField"><span class="dataLabel">Total:</span>{{transaction.total | currency}}</div>
+                      <div class="dataField"><span class="dataLabel">Paypal Transaction ID:</span>{{transaction.transactionId}}</div>
+                      <div class="dataField"><span class="dataLabel">Expiration:</span>{{transaction.exp}}</div>
+                  </div>
+              </li>
+          </div>
+      </div>
+    </div>
+</div>

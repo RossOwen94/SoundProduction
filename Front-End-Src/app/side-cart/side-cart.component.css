@@ -1,0 +1,103 @@
+.cartHeader{
+    font-size: 30px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.removeButton{
+    margin-right: 10px;
+    background-color:  #707474;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid rgb(41, 40, 40)
+}
+
+li{
+    list-style-type: none;
+    margin-bottom: 20px;
+}
+
+.cartItems{
+    margin-left: 10px;
+    margin-bottom: 60px;
+}
+
+.cartFooter{
+    margin-top: 30px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+.numItems{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    width: 50%;
+}
+
+.countLabel{
+    margin-left: 10px;
+    font-size: 20px;
+    text-decoration: underline;
+    text-decoration: 2px;
+}
+#checkoutButton{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.subLabel{
+    margin-left: 10px;
+    font-size: 20px;
+    text-decoration: underline;
+    text-decoration: 2px;
+}
+
+.subTotal{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    width: 50%;
+}
+
+.itemTitle{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+.itemName{
+    margin-right: 15px;
+    font-size:17px;
+    
+}
+
+.sideCart{
+    position: sticky;
+    top: 100px;
+    
+}
+
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+    .countLabel{
+        font-size: 13px;
+    }
+    .subLabel{
+        font-size:13px;
+    }
+    .subTotal{
+        width:100%;
+        grid-template-columns: 1fr 1fr;
+    }
+    .numItems{
+        width: 100%;
+    }
+    .subNumber{
+        padding-left: 5px;
+    }
+    .removeButton{
+        font-size: 10px;
+    }
+    .itemName{
+        font-size: 13px;
+    }
+   
+
+
+}

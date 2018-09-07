@@ -1,0 +1,36 @@
+<div class="registerPage">
+    <form *ngIf="!emailSuccess" [formGroup]="rForm" #myForm="ngForm" class="emailForm" (ngSubmit)="register(rForm.value,myForm)">
+        <div class="supportLabel">Register Below with Lorenz Productions :</div>
+        <hr>
+        
+    
+        <div class="formField" >
+            <label for="name">Full Name :</label>
+            <input type="text" class="form-control" formControlName="name" name="name" placeholder="First Last" [(ngModel)]="name">
+          </div>
+        <div class="formField">
+          <label for="email">Email :</label>
+          <input type="email" class="form-control" formControlName="email" name="email" placeholder="Enter email" [(ngModel)]="email">
+        </div>
+        <div class="formField" >
+          <label for="password">Password :</label>
+          <input type="password" class="form-control" formControlName="password" name="password" placeholder="Enter password" [(ngModel)]="password">
+        </div>
+        <div class="checkBox" >
+            <input type="checkbox" class="form-control" formControlName="privacy" name="privacy">
+            <label for="privacy">I have read and agree to the <span id="fakeLink" (click)="this.showTerms()">Terms of Use</span> and <span id="fakeLink" (click)="this.showPrivacy()">Privacy Policy</span></label>
+        </div>
+        <div class="checkBox" >
+            <input type="checkbox" class="form-control" formControlName="subscription" name="subscription" >
+            <label for="subscription">I agree to receive occasional emails about new scores and offers</label>
+        </div>
+        <div class="buttons">
+          <button type="submit" class="btn btn-default" [disabled]="!rForm.valid">Sign Up!</button>
+        </div>
+      </form>
+      <div *ngIf="this.viewPolicy" class="policies">
+          <iframe *ngIf="this.viewPrivacy" class="policyBox" src="https://gideonsystems.net/privacyPolicy.html"></iframe>
+          <iframe *ngIf="this.viewTerms" class="policyBox" src="https://gideonsystems.net/terms.html"></iframe>
+      </div>
+
+</div>

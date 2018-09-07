@@ -1,0 +1,33 @@
+
+.loginMessage{
+    margin: 5% auto;
+    color: white;
+    height: 100%;
+    margin-left: 10%;
+}
+.topMessage{
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+.subMessage{
+    margin-bottom: 30px;
+    width: 50%;
+}
+
+#loginButton{
+    margin-right: 10px;
+}
+
+
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+    .topMessage{
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+    .subMessage{
+        margin-bottom: 20px;
+        width: 50%;
+    }
+
+}

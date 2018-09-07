@@ -1,0 +1,28 @@
+<div  class=samplesGrid>
+    <span class="allSamples">
+        <li *ngFor="let sample of samples">
+            <div id="singleSample">
+                <h3>{{sample.name}}</h3>
+                <script src="https://w.soundcloud.com/player/api.js"></script>
+                <iframe class="player" width="33%" height="120" scrolling="no" frameborder="no"
+                src="">
+                </iframe>
+                <span class="optionButtons">
+                    <a [routerLink]="['/score-details',sample.name]"><button id="detailsButton" type="button" class="btn btn-secondary">About This Score</button></a>
+                    <button id="buyButton" type="button" class="btn btn-primary" >Add to Cart</button>
+                    <span class="scorePrice">Price: {{sample.price | currency}}</span>
+                </span>
+            </div>
+            <section id="trackInfo">
+                {{sample.description}}
+            </section>
+            <hr>
+        </li>
+    </span>
+
+    <span class="shoppingCart">
+        <app-side-cart></app-side-cart>
+    </span>
+
+</div>
+

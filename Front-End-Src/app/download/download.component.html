@@ -1,0 +1,11 @@
+<div class="downloadContainer">
+  <div class="dlLabel">Your Downloads :</div>
+  <hr>
+  <li *ngFor="let linkscore of linkscores ">
+    <span class="singleDownload">
+      <span class="scoreLabel">{{linkscore.name}}</span>
+      <span><button [attr.data-sample]="linkscore.name" class="downloadLink" >Download</button></span>
+    </span>
+</li>
+</div>
+

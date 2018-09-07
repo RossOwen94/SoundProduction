@@ -1,0 +1,39 @@
+<div class="contactMePage">
+    <form *ngIf="!emailSuccess" [formGroup]="rForm" #myForm="ngForm" class="emailForm" (ngSubmit)="submitForm(rForm.value,myForm)">
+        <div class="supportLabel">Submit Your Ticket Below :</div>
+        <hr>
+        <div class="formField" >
+          <label for="name">Full Name</label>
+          <input type="text" class="form-control" formControlName="name" name="name" placeholder="First Last" [(ngModel)]="name">
+        </div>
+        <div class="formField">
+          <label for="email">Email address</label>
+          <input type="email" class="form-control" formControlName="email" name="email" placeholder="Enter email" [(ngModel)]="email">
+        </div>
+        <div id="message" class="formField">
+          <label for="message">Describe your concern or question below in detail:</label>
+          <textarea name="message" formControlName="message" rows="6" cols="68" placeholder="Tip: Include details from site generated emails/paypal payment details for faster inquiries..." [(ngModel)]="message"></textarea>
+        </div>
+        <div class="buttons">
+          <button type="submit" class="btn btn-default" [disabled]="!rForm.valid">Submit Ticket</button>
+        </div>
+      </form>
+      <div *ngIf="emailSuccess" class="successMessage">
+        <div class="successText">
+            Your ticket has been submitted!
+        </div>
+        <div class="extraText">
+          If you don't get a confirmation email shortly
+          be sure the information was correct and resubmit your
+          request, or contact us directly at supportemail@gmail.com
+        </div>
+        
+        <div class="successActions">
+          <a routerLink="/"><button class="btn btn-default">Home Page</button></a>
+        </div>
+      </div>
+</div>
+
+
+
+

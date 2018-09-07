@@ -1,0 +1,76 @@
+.emailForm{
+   margin: 5% auto;
+    width: 500px;
+    color: white;
+}
+
+.formField{
+    margin-top: 10px;
+}
+
+label{
+    margin-left: 10px;
+
+}
+.buttons{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: 5px;
+    width: 40%;
+}
+
+.successMessage{
+    width: 500px;
+    height: 300px;
+    margin-left: 100px;
+    margin-top: 100px;
+    color: white;
+}
+
+.successText{
+    font-size: 25px;
+}
+.contactMePage{
+    background-color:  #4a4e4e;
+    width: 100%;
+}
+
+.successActions{
+    width:50%;
+    margin-top: 15px;
+}
+
+.extraText{
+    font-size: 15px;
+    margin-top:15px;
+}
+
+.supportLabel{
+font-size: 35px;
+color: white;
+}
+
+hr{
+    border-color: white;
+}
+
+
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+    .emailForm{
+        width: 75%;
+    }
+    .supportLabel{
+        font-size: 20px;
+    }
+    input{
+        font-size: 10px;
+    }
+    label{
+        font-size: 15px;
+    }
+    #message{
+        overflow: auto;
+    }
+
+}

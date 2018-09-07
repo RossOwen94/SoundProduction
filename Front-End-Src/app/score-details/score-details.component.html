@@ -1,0 +1,29 @@
+
+<div class="detailsPage">
+  <div class="container">
+      <h2>{{this.currentSample.name}}</h2>
+    <hr>
+    <script src="https://w.soundcloud.com/player/api.js"></script>
+    <div class="content">
+      <div class="detailsContent">
+          <div class="detailsLabel">Details:</div>
+          <hr width="45%" align="left" id="blackHr">
+          <div class="difficulty"><span class="label">Difficulty:</span> {{this.currentSample.difficulty}}/10</div>
+          <div class="instrumentation">
+              <span class="label">Instrumentation:</span>
+              <li class="singleInstrument" *ngFor="let instrument of this.currentSample.instrumentation">
+                {{instrument}}
+              </li>
+          </div>
+          <div class="price"><span class="label">Price:</span> {{this.currentSample.price | currency}}</div>
+          <button id="cartButton" type="button" class="btn btn-primary" >Add to Cart</button>
+      </div>
+      <iframe class="player" width="100%" height="120" scrolling="no" frameborder="no" src=""></iframe>
+    </div>
+    <div class="description">{{this.currentSample.longDesc}}</div>
+    <div><img id="waterMark" src=""></div>
+  </div>
+  <div class="shoppingCart">
+    <app-side-cart></app-side-cart>
+  </div>
+</div>

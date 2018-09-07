@@ -1,0 +1,39 @@
+.downloadContainer{
+    height: 800px;
+    margin-left:150px;
+    margin-top:100px;
+    color: white;
+    width: 50%;
+}
+.scoreLabel{
+    font-size: 25px;
+    margin-right:30px;
+}
+
+.singleDownload{
+    width: 50%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+
+li{
+    list-style-type: none;
+    margin-bottom: 15px;
+}
+
+hr{
+    border-color: white;
+}
+.dlLabel{
+    font-size: 50px;
+}
+
+.downloadLink{
+    font-size: 15px;
+    background-color: rgb(26, 26, 129);
+    color: white;
+    border: 1px solid black;
+    border-radius:3px;
+    cursor: pointer;
+}

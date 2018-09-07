@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <%- myCss.style %>
+    </head>
+    <body>
+
+        <div class="resetEmail">
+                <div class="emailHead">
+                    
+                    <span>
+                        <img src="http://localhost:1737/images/mic.jpg">
+                    </span>
+                    <span class="brandHeader">Lorenz Productions </span>
+                </div>
+               
+                <div class="emailBody">
+                    <div class="bodyHeader">We received a request to reset your password!</div>
+                    <div class="messageBody">Click the link below to reset your password.
+                        For your account security, this link is set to expire. If needed,
+                        have a new link sent from <a href="http://localhost:1737/">JarenLorenz.com</a>.
+                    </div>
+                    <div class="resetLink">
+                        <a href="<%= resetlink %>">Click Here To Reset Your Password</a>
+                    </div>
+                </div>
+        </div>
+
+    </body>
+    
+
+</html>

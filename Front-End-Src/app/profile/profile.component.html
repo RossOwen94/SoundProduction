@@ -1,0 +1,41 @@
+<div class="profileContainer">
+    <div class="profileHeader">Welcome Back, {{this.name}}!<hr></div>
+    
+    
+    <div class="content">
+            <span class="optionsBar">
+                <ul>
+                    <li><a routerLink='/profile'>Account ></a></li>
+                    <hr>
+                    <li><a routerLink='/download'>My Downloads</a></li>
+                    <hr>
+                    <li><a routerLink='/contactMe'>Submit a Support Request</a></li>
+                    <hr>
+                    <li><a routerLink='/forgot'>Reset Password</a></li>
+                    <hr>
+                    <li><a *ngIf="this.showDash()" routerLink='/dashboard'>Admin Dashboard</a></li>
+                </ul>
+            </span>
+            <span class="mainContent">
+                    <div class="userInfo">
+                        <div class="accountDetails">Account Details :</div>
+                        <hr>
+                        <div class="email">Email : {{details?.email}}</div>
+                        <div class="name">Name : {{details?.name}}</div>
+                        <hr>
+                    </div>
+                    <div class="scoreList">
+                        <div class="purchaseLabel">Your Purchases:</div>
+                        <hr>
+                        <div class="noPurchaseMessage" *ngIf="!scores.length">You haven't purchased any scores yet! Go to the samples page to browse our selections.</div>
+                        <li *ngFor="let score of scores">
+                                <div class="scoreName">{{score?.name}}</div>
+                                <div class="exp">Expires : {{score?.exp | date : 'longDate' }}</div>
+                        </li>
+                        <hr>
+                    </div>
+            </span>
+    </div>   
+</div>
+
+  

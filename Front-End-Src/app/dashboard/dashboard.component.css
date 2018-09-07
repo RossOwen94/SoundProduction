@@ -1,0 +1,149 @@
+.dashboardWindow{
+    color: white;
+    margin-left: 100px;
+    margin-top: 100px;
+    margin-right: 100px;
+    margin-bottom: 400px;
+}
+
+label{
+    margin-left: 10px;
+}
+
+.formField{
+    margin-top: 10px;
+
+}
+
+.dashButton{
+    border:none;
+    background-color:white;
+    cursor: pointer;
+    height: 50px;
+    margin-left:30px;
+}
+
+li{
+    list-style-type: none;
+}
+
+.dashboardNav{
+    background-color: white;
+    box-shadow: 5px 10px 18px black;
+    color: black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 50%;
+}
+
+
+.dashboardHead{
+    margin-left: 20px;
+}
+
+hr{
+    border-color:white;
+}
+
+.singleSample{
+    margin-bottom:20px;
+    background-color: white;
+    color: black;
+    box-shadow: 5px 10px 18px black;
+    padding-top: 30px;
+    padding-bottom:30px;
+    padding-left: 30px;
+    padding-right:30px;
+    word-break: break-all;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+#addButton{
+    margin-top: 50px;
+    margin-right: 10px;
+}
+
+.remove{
+    margin-top:50px;
+}
+
+.dataField{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+
+.content{
+    margin-top: 50px;
+}
+
+.allSamples{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: 1fr 1fr ;
+    grid-column-gap: 5px;
+}
+.updateForm{
+    width: 100%;
+    margin-top:30px;
+}
+
+.scoreLabel{
+    color:rgb(10, 10, 134);
+    font-size: 25px;
+
+}
+
+.updateLabel{
+    font-size: 30px;
+}
+
+.editButton{
+    background-color: rgb(73, 73, 204);
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-right: 10px;
+    margin-top: 10px;
+    color:white;
+}
+.success{
+    font-size: 25px;
+
+}
+
+#submit{
+    margin-top: 50px;
+    margin-right: 10px;
+}
+
+.removeButton{
+    background-color: rgb(180, 3, 3);
+    color:white;
+    border-radius: 5px;
+    border: 1px solid black;
+    width:100px;
+    height: 30px;
+}
+
+.editButton{
+    width: 100px;
+    height: 30px;
+}
+
+.emailForm{
+    width: 60%
+}
+
+.closeEdit{
+    background-color: rgb(1, 158, 197);
+    color:  white;
+}
+
+#nameField{
+    display:none;
+}
+
+
+
+
+

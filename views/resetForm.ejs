@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="http://localhost:1737/resetFormStyles.css">
+    </head>
+    <body>
+        <div class="resetForm">
+                <img class="brandImage" src="http://localhost:1737/images/studio.jpg">
+            <div class="formWindow">
+                <div class="brand">Lorenz Productions:</div>
+                <p class="formLabel">Finish resetting your password:</p>
+                <form action="http://localhost:1737/forgot/change" method="POST">
+                    <input class="tokenField" name="token" type="text"  value="<%= token %>">
+                    <div class="formField">
+                        <div class="formLabel">Enter a new password:</div>
+                        <input name="password" required="required" type="password" id="password" />
+                    </div>
+                    <div class="formField">
+                        <div class="formLabel">Re-enter your new password:</div>
+                        <input name="password_confirm" required="required" type="password" id="password_confirm" oninput="check(this)" />
+                    </div>
+                    <div class="submitButtonHolder">
+                        <button class="submitButton" type="submit()">Submit</button>
+                    </div>
+                    
+        </form>
+
+
+
+            </div>
+              
+        </div>
+
+
+        <script language='javascript' type='text/javascript'>
+            function check(input) {
+                if (input.value != document.getElementById('password').value) {
+                    input.setCustomValidity('Password Must be Matching.');
+                } else {
+                    // input is valid -- reset the error message
+                    input.setCustomValidity('');
+                }
+            }
+        </script>
+    </body>
+
+
+
+</html>

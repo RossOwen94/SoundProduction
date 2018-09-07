@@ -1,0 +1,20 @@
+<div  class="forgotPage">
+    <form  *ngIf="!emailSuccess" [formGroup]="rForm" #myForm="ngForm" class="forgotForm" (ngSubmit)="recover(rForm.value,myForm)">
+        <div class="supportLabel">Enter the email associated with your account and we will email you instructions
+          to reset your password  :</div>
+        <hr>
+        <div class="failureMessage" *ngIf="emailFailure">No user was found with that email address.</div>
+        <div class="formField">
+          <label for="email">Email :</label>
+          <input type="email" class="form-control" formControlName="email" name="email" placeholder="Enter email" [(ngModel)]="email">
+        </div>
+        <div class="buttons">
+          <button type="submit" class="btn btn-default" [disabled]="!rForm.valid">Submit</button>
+        </div>
+    </form>
+    
+    <div *ngIf="emailSuccess" class="successMessage">An email has been sent to {{this.email}} with a link to reset your password.</div>
+
+
+
+</div>

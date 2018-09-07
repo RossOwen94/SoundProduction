@@ -1,0 +1,60 @@
+.profileContainer{
+    margin-left: 60px;
+    margin-top:30px;
+    margin-bottom:200px;
+    color:white;
+}
+
+hr{
+    border-color: white;
+}
+
+.content{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+}
+
+.purchaseLabel{
+    font-size: 25px;
+}
+.accountDetails{
+    font-size: 25px;
+}
+
+.mainContent{
+    margin-left: 75px;
+    width: 50%;
+}
+ul{
+    padding: 0;
+}
+li{
+    list-style-type: none;
+    margin-left: 20px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+a{
+    color:black;
+}
+
+.optionsBar{
+    background-color: rgb(201, 197, 195);
+    height: 400px;
+    border-radius: 3px;
+    border: 1px solid rgb(58, 57, 57);
+}
+
+.profileHeader{
+    text-align: center;
+    font-size: 30px;
+    width: 75%;
+}
+
+.scoreList{
+    margin-top:50px;
+}
+
+.content{
+    margin-top:100px;
+}
